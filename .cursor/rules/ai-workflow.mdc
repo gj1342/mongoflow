@@ -1,0 +1,28 @@
+---
+description: AI agent workflow - read ai/ and follow agents when prompted (PP, PM, ARCH, DEV, QA, SEC, REV)
+alwaysApply: true
+---
+
+# AI Workflow
+
+Acronyms: PP=Project Planner, PM=PM, ARCH=Architect, DEV=Developer, QA=QA, SEC=Security, REV=Reviewer.
+
+When user says PP, PM, ARCH, DEV, QA, SEC, or REV (or planning/implementation/security/review), read the relevant ai/ docs first.
+
+- **Any task**: [ai/ARCHITECTURE.md](ai/ARCHITECTURE.md), [ai/RULES.md](ai/RULES.md)
+- **PP / planning**: [ai/agents/PROJECT_PLANNER.md](ai/agents/PROJECT_PLANNER.md), TODO.md
+- **PM**: [ai/agents/PM.md](ai/agents/PM.md)
+- **ARCH**: [ai/agents/ARCHITECT.md](ai/agents/ARCHITECT.md)
+- **DEV**: [ai/agents/DEVELOPER.md](ai/agents/DEVELOPER.md)
+- **QA**: [ai/agents/QA.md](ai/agents/QA.md)
+- **SEC**: [ai/agents/SECURITY.md](ai/agents/SECURITY.md)
+- **REV**: [ai/agents/REVIEWER.md](ai/agents/REVIEWER.md)
+
+## Key Constraints
+
+- TODO.md is the source of truth for scope and status.
+- Layered architecture: models -> repositories -> services -> controllers -> routes.
+- SOLID and DRY principles apply.
+- No comments allowed in code.
+- TypeScript strict mode.
+- Centralized error handling via AppError and errorHandler.

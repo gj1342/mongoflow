@@ -1,0 +1,56 @@
+---
+description: Security guidelines for backend development
+alwaysApply: true
+---
+
+# Security Guidelines
+
+## Environment Variables
+
+- Never commit .env files.
+- All secrets (API keys, database URIs, tokens) in environment variables only.
+- Validate environment variables on startup (see config/environment.ts).
+
+## Input Validation
+
+- Validate all user inputs at controller level.
+- Use Mongoose schema validation for data integrity.
+- Sanitize outputs to prevent XSS.
+
+## Error Handling
+
+- Never expose stack traces in production.
+- Never log sensitive data (passwords, tokens).
+- Use centralized errorHandler middleware.
+
+## Database Security
+
+- Use Mongoose ODM (no raw queries).
+- Enable Mongoose schema validation.
+- Use parameterized queries (Mongoose handles this).
+
+## Authentication & Authorization
+
+- Use JWT or session-based auth (when implemented).
+- Hash passwords with bcrypt (when implemented).
+- Implement rate limiting for auth endpoints (when implemented).
+
+## CORS
+
+- Configure CORS with specific origins in production.
+- Avoid CORS_ORIGIN=* in production.
+
+## Dependencies
+
+- Run npm audit regularly.
+- Keep dependencies up to date.
+- Review new dependencies before adding.
+
+## Code Review
+
+- Security agent (SEC) must review changes involving:
+  - Authentication/authorization
+  - Database operations
+  - Environment variables
+  - User input handling
+  - File uploads (when implemented)
